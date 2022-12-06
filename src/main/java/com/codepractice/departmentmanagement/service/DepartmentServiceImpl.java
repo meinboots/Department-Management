@@ -38,6 +38,7 @@ public class DepartmentServiceImpl implements DepartmentService{
         Department depTemp = departmentRepository.findById(departmentId).get();
 
         //Checking for not Null & Empty values and then updating data in the database
+        //This is how we will be not updating any empty data to database
         if(Objects.nonNull(department.getDepartmentName()) &&
                 !"".equalsIgnoreCase(department.getDepartmentName())) {
             depTemp.setDepartmentName(department.getDepartmentName());
