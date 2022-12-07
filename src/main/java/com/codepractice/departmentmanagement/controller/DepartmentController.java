@@ -2,6 +2,7 @@ package com.codepractice.departmentmanagement.controller;
 
 import com.codepractice.departmentmanagement.entity.Department;
 import com.codepractice.departmentmanagement.service.DepartmentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,7 @@ public class DepartmentController {
 
     //Create Department
     @PostMapping("/departments")
-    public Department createDepartment(@RequestBody Department department){
+    public Department createDepartment(@Valid @RequestBody Department department){
 
         return departmentService.saveDepartment(department);
 

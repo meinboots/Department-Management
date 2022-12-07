@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 //Now this class can interact with my database :
@@ -11,6 +12,19 @@ public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long departmentId;
+    //Added one validation, Gave idea about more.
+    @NotBlank(message = "Not able to save department without name, Please provide department name")
+    /*@Length(max = 5,min =1)
+    @Size(max = 10, min = 0)
+    @Email
+    @Positive
+    @Negative
+    @PositiveOrZero
+    @NegativeOrZero
+    @Future
+    @FutureOrPresent
+    @Past
+    @PastOrPresent*/
     private String departmentName;
     private String departmentAddress;
     private String departmentCode;
