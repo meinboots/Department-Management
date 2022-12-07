@@ -3,6 +3,8 @@ package com.codepractice.departmentmanagement.controller;
 import com.codepractice.departmentmanagement.entity.Department;
 import com.codepractice.departmentmanagement.service.DepartmentService;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,17 +16,21 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
+    //Adding logger
+    private final Logger LOGGER = LoggerFactory.getLogger(DepartmentController.class);
+
     //Create Department
     @PostMapping("/departments")
     public Department createDepartment(@Valid @RequestBody Department department){
-
+        LOGGER.info("Inside createDepartment method of DepartmentController !");
         return departmentService.saveDepartment(department);
 
     }
     //Fetch Departments
      @GetMapping("/departments")
     public List<Department> fetchDepartments(){
-        return departmentService.fetchDepartments();
+         LOGGER.info("Inside fetchDepartments method of DepartmentController !");
+         return departmentService.fetchDepartments();
     }
 
     //Fetch Department by ID
