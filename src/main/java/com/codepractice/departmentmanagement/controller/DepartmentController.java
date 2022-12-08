@@ -1,6 +1,7 @@
 package com.codepractice.departmentmanagement.controller;
 
 import com.codepractice.departmentmanagement.entity.Department;
+import com.codepractice.departmentmanagement.errorHandling.DepartmentNotFoundException;
 import com.codepractice.departmentmanagement.service.DepartmentService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -35,7 +36,7 @@ public class DepartmentController {
 
     //Fetch Department by ID
     @GetMapping("/departments/{id}")
-    public Department fetchDepartmentById(@PathVariable("id") Long departmentId){
+    public Department fetchDepartmentById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
             return departmentService.fetchDepartmentById(departmentId);
     }
 

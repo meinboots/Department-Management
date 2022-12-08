@@ -1,6 +1,7 @@
 package com.codepractice.departmentmanagement.service;
 
 import com.codepractice.departmentmanagement.entity.Department;
+import com.codepractice.departmentmanagement.errorHandling.DepartmentNotFoundException;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ public interface DepartmentService {
 
     public List<Department> fetchDepartments();
 
-    public Department fetchDepartmentById(Long departmentId);
+    public Department fetchDepartmentById(Long departmentId) throws DepartmentNotFoundException;
 
     public void deleteDepartmentById(Long departmentId);
 
